@@ -58,4 +58,4 @@ signed main() {
 
     cout << query(maxDown, m) << '\n' << query(maxUp, m) << '\n';
 
-}
+}//fdsjif

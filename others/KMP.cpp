@@ -16,7 +16,7 @@ void pre_next() {
     // }
     ne[0] = -1; ne[1] = 0;
     for (int i = 2, cn = 0; i <= m;) {
-        if (p[i - 1] == p[cn]) ne[i++] = ++cn;
+        if (p[i - 1] == p[cn]) ne[i++] = ++cn; // 根据next的两维定义，1.最大等长前后缀长度，2.主串中下一次开始匹配的下标，那么有此时有i - 1 = cn， 则ne[i] = cn + 1;
         else if (cn > 0) cn = ne[cn];
         else ne[i++] = 0;
     }

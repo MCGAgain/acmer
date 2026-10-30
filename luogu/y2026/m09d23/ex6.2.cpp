@@ -148,7 +148,7 @@ Status TripleMul (Tripletable A, Tripletable B, Tripletable &C)    // C＝A×B
     }
     C.mu= A.mu;    // 确定 C 矩阵的行、列数及非零元总数 (6)
     C.nu= B.nu; // (7)
-    C.tu=p-1;
+    C.tu=p-1;‘
     return OK;
 }
 

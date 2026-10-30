@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/Users/Zhuanz/Documents/acmer/Contests/Atcode/ABC472/C.cpp","tests":[{"id":1788797769020,"input":"7 4 728\n187 816 349 609 255 308 175\n","output":"Yes\nNo\nYes\nNo\nYes\nNo\nYes\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/Zhuanz/Documents/acmer/Contests/Atcode/ABC472/C.cpp","group":"local","local":true}

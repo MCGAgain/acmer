@@ -1,0 +1,1 @@
+{"name":"Local: KMPYXC","url":"/Users/jj_wong/Algorithm/acmer/others/KMPYXC.cpp","tests":[{"id":1793533807721,"input":"3\naba\n5\nababa","output":"0 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jj_wong/Algorithm/acmer/others/KMPYXC.cpp","group":"local","local":true}

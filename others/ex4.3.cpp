@@ -59,12 +59,11 @@ void PrintYanghuiTriangle(int n) // 输出 n 行杨辉三角
     printf("%d\n", 1);
     EnQueue(Q, 1); EnQueue(Q, 1);
     for(int i = 2; i <= n; i++) {
-        pre = 0;
-        for(int j = 0; j < i; j++) {
+        pre = 0;    //左侧虚拟 0
+        for(int j = 0; j < i; j++, pre = cur/*迭代*/) {
             DeQueue(Q, cur);
             printf("%d ", cur);
             EnQueue (Q, pre + cur);
-            pre = cur;
         }
         puts(""); EnQueue (Q,1);
     }

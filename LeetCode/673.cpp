@@ -43,7 +43,6 @@ signed main() {
     cin.tie(0); cout.tie(0);
     cin >> n; vector <int> a(n + 1), help;
     repe(i, 1, n) cin >> a[i];
-
     help = a; sort(help.begin() + 1, help.end());
 
     help.erase(unique(help.begin() + 1, help.end()), help.end());

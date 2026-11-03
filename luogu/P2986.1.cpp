@@ -27,7 +27,7 @@ void find_center (int u, int f) {
 
     for (int i = h[u]; ~i; i = ne[i]) {
         int j = e[i];
-        if (j != f) {
+        if (j != f) {   //已访问标记
             find_center(j, u);
             size[u] += size[j];
             max_sub = max(max_sub, size[j]);    //选择子树中节点权重最大的
@@ -36,9 +36,9 @@ void find_center (int u, int f) {
 
     max_sub = max(max_sub, cow_sum - size[u]);  //与父部组成的子树的再次比较
 
-    if (max_sub < best) {
-        center = u;
-        best = max_sub;
+    if (max_sub < best) { //有全局更优答案就更新
+        center = u; //更新 center 重心
+        best = max_sub; //更新最大子树
     }
     
 }

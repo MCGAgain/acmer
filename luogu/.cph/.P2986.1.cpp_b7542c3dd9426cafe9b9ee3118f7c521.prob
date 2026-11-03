@@ -1,1 +1,0 @@
-{"name":"Local: P2986","url":"/Users/jj_wong/Algorithm/acmer/luogu/P2986.1.cpp","tests":[{"id":1793626454763,"input":"5 \n1 \n1 \n0 \n0 \n2 \n1 3 1 \n2 3 2 \n3 4 3 \n4 5 3 \n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/jj_wong/Algorithm/acmer/luogu/P2986.1.cpp","group":"local","local":true}

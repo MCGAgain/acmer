@@ -11,6 +11,7 @@
 *.exe
 *.out
 *.app
+*.bin
 *.dSYM/
 
 # =========================
@@ -43,9 +44,11 @@ build/
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
 
 # =========================
-# 临时文件和备份
+# 临时文件和竞赛插件缓存
 # =========================
 *.tmp
 *.temp
@@ -53,6 +56,7 @@ build/
 *.swo
 *~
 *.bak
+.cph/
 
 # =========================
 # CMake 构建目录

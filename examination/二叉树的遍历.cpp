@@ -130,17 +130,17 @@ void st_MidOrder(BiTNode *tree)
     while(top != NULL || tree != NULL){         //(5)          // 循环条件为二叉树还未遍历完，或栈非空
         while(tree!=NULL) {                             // 二叉树还未遍历完
             Push(top, tree);                            // 树结点入栈
-            tree = tree->lchild;  //(6)                  // 沿左子树前进，将经过的结点依次进栈
+            tree = tree->lchild;  //(6) 沿左链，经过的所有左节点入栈
         }
-        if(top!=NULL){                                  // 左子树点入栈结束，且栈非空
+        if(top!=NULL){                                  // 左子树点入栈结束，取栈顶输出
             Pop(top, tree);                             // 树结点出栈
             printf("%c ",tree->data);   // (7)                  // 访问根结点
-            tree = tree->rchild; //(8)                 // 向右子树前进
+            tree = tree->rchild; //(8)  递归处理右子树               // 向右子树前进
         }
     }
 }
 // ⑪后序遍历，采用链接栈的迭代方法
-void st_PostOrder(BiTNode *tree)
+void st_PostOrder(BiTNode *tree)    //形式上与中序相似，仅仅多出左右完成访问的标记
 {
     LinkStack top;                                      // 栈顶指针
     top=NULL;                                           // 初始化为空栈

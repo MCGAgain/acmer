@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <queue>
 #include <bitset>
+#include <cstring>
 #define rep(i, a, b) for (int i = (a); i < (b); i++) 
 
 using namespace std;
@@ -10,8 +11,9 @@ typedef pair<int, int> PII;
 
 const int N = 510, M = 1e5 + 10;
 
-int h[N], e[N<<1], w[N<<1], ne[N<<1], dist[N];
+int h[N], e[M<<1], w[M<<1], ne[M<<1], dist[N];
 int n, m;
+bitset<N> st;
 
 void add(int a, int b, int c) {
     static int idx = 0;
@@ -30,7 +32,23 @@ int prime() {
 
         int distance = t.first, ver = t.second;
         
+        if (st[ver]) continue; st[ver] = 1; 
+        cnt++;
+        res += distance;
+        for (int i = h[ver]; ~i; i = ne[i]) {
+            int j = e[i];
+
+            if (w[i] < dist[j]) { // !st[i] ?? 
+                dist[j] = w[i];
+                heap.push({dist[j], j});
+            }
+
+        }
+
     }
+
+    if (cnt < n) return 0x3f3f3f3f;
+    return res;
 }
 
 signed main() {
@@ -46,6 +64,6 @@ signed main() {
     }
 
     int t = prime();
-    if (t == 0x3f3f3f3f) cout << ""
-
+    if (t == 0x3f3f3f3f) cout << "impossible" << '\n';
+    else cout << t << '\n';
 }

@@ -23,10 +23,17 @@ void merge(int l, int m, int r) {
             help[ip++] = a[rp++];
         }
     }
+    while (lp <= m) help[ip++] = a[lp++];
+    while (rp <= r) help[ip++] = a[rp++];
+    for (int i = l; i <= r; i++) a[i] = help[i];
 }
 
 void count_rev(int l, int r) {
-    
+    if (l >= r) return;
+    int m = l + r >> 1;
+    count_rev(l, m);
+    count_rev(m + 1, r);
+    merge(l, m, r);
 }
 
 signed main() {
@@ -36,6 +43,8 @@ signed main() {
     int n; cin >> n;
     rep(i, 0, n) cin >> a[i];
 
-    
+    count_rev(0, n - 1);
+
+    cout << ans << '\n';
 
 }

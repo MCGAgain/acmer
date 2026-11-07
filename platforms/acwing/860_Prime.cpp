@@ -30,7 +30,7 @@ int prime() {
         st[t] = 1;
 
         for (int j = 1; j <= n; j++)
-            dist[j] = min(dist[j], gra[t][j]);  
+            dist[j] = min(dist[j], gra[t][j]);  //0x3f3f3f3f处理了不存在的边，保证了不会被松弛
             /*
             这里是增量维护，看似是只松弛了到 t 的最短距离，但是实际上，
             集合中除 t 以外的点，在历史中已经完成了松弛更新，属于历史纪录信息，

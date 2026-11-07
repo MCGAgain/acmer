@@ -1,15 +1,15 @@
 #include <iostream>
 #include <queue>
 #include <bitset>
-#include <cstring>
-#define rep(i, a, b) for (int i = (a); i < (b); i++)
+#define rep(i, a, b) for (int i = (a); i < (b); i++) 
+
 using namespace std;
 
 typedef pair<int, int> PII;
 
 const int N = 510, M = 1e5 + 10;
 
-int h[N], e[M << 1], ne[M << 1], w[M << 1];
+int h[N], e[N<<1], w[N<<1], ne[N<<1], dist[N];
 int n, m;
 int dist[N];
 bitset<N> st;
@@ -18,6 +18,7 @@ void init() {
     memset(dist, 0x3f, sizeof dist);
     memset(h, -1, sizeof h);
 }
+bitset<N> st;
 
 void add(int a, int b, int c) {
     static int idx = 0;

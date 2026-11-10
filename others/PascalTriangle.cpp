@@ -36,22 +36,25 @@ void ArrOut(int n) {
 }
 
 void SingalOut(int n) {
-    int c = 1;
-    for (int i = 1; i <= n; i++) {
+    int c;
+    for (int i = 0; i < n; i++) {
         c = 1;
-        cout << c << ' ';
-        for (int j = 2; j <= i; j++) {
-            c = c * (i - j + 1) / j;
+        for (int j = 0; j <= i; j++) {
             cout << c << ' ';
+            c = c * (i - j) / (j + 1);
         }
         cout << '\n';
     }
+}
+
+void SingalLineOut(int n) {
+    for (int i = 0; i < n; i++) for (int j = 0, c = 1; j <= i; c = c * (i - j) / (j + 1), j++) cout << c << " \n"[i == j];
 }
 
 signed main() {
     int T; cin >> T;
     while (T--) {
         int n; cin >> n;
-        SingalOut(n);
+        SingalLineOut(n);
     }
 }

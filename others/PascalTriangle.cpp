@@ -5,7 +5,7 @@ using namespace std;
 
 void QueueOut(int n) {
     queue<int> q, tq;
-    int pre = 0, cur = 0;   
+    int pre = 0, cur = 0;   //利用前置信息计算当前位数
     for (int i = 0; i <= n; i++) {
 
         pre = 0;
@@ -28,7 +28,7 @@ void ArrOut(int n) {
     a[1] = 1;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = i; j >= 1; j--) {  //借用上一行的信息，滚动数组，逆序遍历
+        for (int j = i; j >= 1; j--) {  //借用上一行的信息，滚动数组，逆序遍历，参考背包优化思想
             cout << (a[j] = a[j] + a[j - 1]) << ' ';
         }
         cout << '\n';
@@ -41,12 +41,11 @@ void SingalOut(int n) {
         c = 1;
         for (int j = 0; j <= i; j++) {
             cout << c << ' ';
-            c = c * (i - j) / (j + 1);  //组合数迭代表达
+            c = c * (i - j) / (j + 1);  //组合数迭代表达计算下一个组合数
         }
         cout << '\n';
     }
 }
-
 void SingalLineOut(int n) {
     for (int i = 0; i < n; i++) for (int j = 0, c = 1; j <= i; c = c * (i - j) / (j + 1), j++) cout << c << " \n"[i == j];
 }

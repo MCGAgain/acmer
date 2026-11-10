@@ -5,7 +5,7 @@ using namespace std;
 
 void QueueOut(int n) {
     queue<int> q, tq;
-    int pre = 0, cur = 0;
+    int pre = 0, cur = 0;   
     for (int i = 0; i <= n; i++) {
 
         pre = 0;
@@ -28,7 +28,7 @@ void ArrOut(int n) {
     a[1] = 1;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = i; j >= 1; j--) {
+        for (int j = i; j >= 1; j--) {  //借用上一行的信息，滚动数组，逆序遍历
             cout << (a[j] = a[j] + a[j - 1]) << ' ';
         }
         cout << '\n';
@@ -41,7 +41,7 @@ void SingalOut(int n) {
         c = 1;
         for (int j = 0; j <= i; j++) {
             cout << c << ' ';
-            c = c * (i - j) / (j + 1);
+            c = c * (i - j) / (j + 1);  //组合数迭代表达
         }
         cout << '\n';
     }

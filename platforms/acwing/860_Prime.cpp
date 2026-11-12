@@ -5,28 +5,34 @@
 #define rep(i, a, b) for (int i = (a); i < (b); i++)
 using namespace std;
 
-const int N = 110, M = 1e5 + 10;
+const int N = 510, M = 1e5 + 10;
 
-int gra[N][N], n, m, dist[N];
-bitset<N> st;
+int n, m;
+int gra[N][N]; //邻接矩阵存边
+int dist[N];    //点到集合的距离
+bitset<N> st;   //判断该点是否已经在集合中
+
+void init() {
+    memset(dist, 0x3f, sizeof dist);    //初始化所有点到集合的距离都是正无穷
+    memset(gra, 0x3f, sizeof gra);  //初始化每一条边的距离都是正无穷，表示边不存在，或者两点不连通
+}
 
 int prime() {
 
-    memset(dist, 0x3f, sizeof dist);
     int res = 0;
+    dist[1] = 0; //规定起点到集合的距离就是 0，因为起点已经在集合中
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {   //每次确定一个点到集合中，n 个点需要确定 n 次
 
         int t = -1;
-        dist[1] = 0; // 为了定义上的美观，我们讲 dist[1]定义为0，实际上dist[1] 并不会被使用
-
+        
         for (int j = 1; j <= n; j++) {
             if (!st[j] && (!~t/*t 为-1 的时候是当前的第一个点，最为最小值即可*/ || dist[j] < dist[t])) t = j;
         }
 
         // 如果没有初始化dist[1] = 0 那么必须加对i的特判
-        if (i && dist[t] == 0x3f3f3f3f) return 0x3f3f3f3f;  //如果是非第一次，也就从第二轮开始建边的时候，无限大意味着不可达，不连通
-        if (i) res += dist[t];  //t 作为当前确定的离集合最近的点，可以添加到结果中
+        if (dist[t] == 0x3f3f3f3f) return 0x3f3f3f3f;  //在所有剩下的不在集合的点中找的到集合最近的点的距离都是无限大，说明剩下的点跟集合根本不连通
+        res += dist[t];  //t 作为当前确定的离集合最近的点，可以添加到结果中; 起点到起点的距离为 0，不影响结果
         st[t] = 1;
 
         for (int j = 1; j <= n; j++)
@@ -47,7 +53,6 @@ signed main() {
     cin.tie(0);
 
     cin >> n >> m;
-    memset(gra, 0x3f, sizeof gra);
 
     rep(i, 0, m) {
         int u, v, w;

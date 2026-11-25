@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+
+#if 1
 string s; 
 
 bool same(int l, int m) {
@@ -20,17 +22,11 @@ signed main() {
     s = ' ' + s;
 
     int ans = 0;
-    for (int i = 1; i < s.size() - 1; i++) {
-        if ((i & 1) == 1) continue;
-        int len = i;
-        while (len) {
-            if (same(1, len + 1 >> 1)) {
-                ans = max(ans, len);
-                break;
-            }
-            len >>= 1;
-        }
+    for (int i = 2; i < s.size() - 1; i += 2) {
+        if (same(1, i + 1 >> 1)) 
+            ans = max(ans, i);
     }
 
     cout << ans << '\n';
 }
+#endif
